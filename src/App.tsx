@@ -5,6 +5,7 @@ import Hhhha from './Wfy/Hhhha';
 import Hhhh from './Hch/Hhhh';
 import Hhh from './Lhq/Hhh';
 import Hh from './Lyt/Hh';
+import Sss from './Syt/Sss';
 
 const App = () => {
   const menuItems = [
@@ -12,6 +13,7 @@ const App = () => {
     { label: '黄城红', link: '/Hhhh' },
     { label: '刘慧琦', link: '/Hhh' },
     { label: '林玉婷', link: '/Hh' },
+    { label: '苏渝婷', link: '/Sss' },
   ];
   return (
     <Router>
@@ -22,6 +24,7 @@ const App = () => {
           <Route path="/Hhhh" element={<Hhhh />} />
           <Route path="/Hhh" element={<Hhh />} />
           <Route path="/Hh" element={<Hh />} />
+          <Route path="/Sss" element={<Sss/>} />
         </Routes>
       </div>
     </Router>
