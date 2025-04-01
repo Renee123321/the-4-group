@@ -1,17 +1,24 @@
 import React from 'react';
-import SysPage from './SysPage';
-import MyTitle from './SysPage/MyTitle';
-import SysPage2 from './SysPage2';
+import { BrowserRouter as Router, Routes, Route } from'react-router-dom';
+import Sidebar from './Sidebar';
+import Hhhha from './Wfy/Hhhha';
 
 const App = () => {
-
+  const menuItems = [
+    { label: '韦凤莹', link: '/Hhhha' },
+   
+  ];
   return (
-    <>
-    <SysPage2></SysPage2>
-    </>
+    <Router>
+      <div>
+        <Sidebar title="菜单" menuItems={menuItems} /> {/* 传递属性 */}
+        <Routes>
+          <Route path="Hhhha" element={<Hhhha />} />
+         
+        </Routes>
+      </div>
+    </Router>
   );
-}
+};
 
 export default App;
-
-
