@@ -2,10 +2,12 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Sidebar from './Sidebar';
 import Hhhha from './Wfy/Hhhha';
+import Hhhh from './Hch/Hhhh';
 
 const App = () => {
   const menuItems = [
     { label: '韦凤莹', link: '/Hhhha' },
+    { label: '黄城红', link: '/Hhhh' },
   ];
   return (
     <Router>
@@ -13,6 +15,7 @@ const App = () => {
         <Sidebar title="菜单" menuItems={menuItems} /> {/* 传递属性 */}
         <Routes>
           <Route path="/Hhhha" element={<Hhhha />} />
+          <Route path="/Hhhh" element={<Hhhh />} />
         </Routes>
       </div>
     </Router>
