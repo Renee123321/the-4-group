@@ -66,15 +66,11 @@ const TodoList: React.FC = () => {
                     {todos.map(todo => (
                         <li
                             key={todo.id}
-                            className={`flex items-center justify-between p-3 rounded-lg shadow-md ${
-                                todo.completed? 'bg-green-100' : 'bg-white'
-                            } transition-all duration-300 hover:scale-105`}
+                            className={`flex items-center justify-between p-3 rounded-lg shadow-md ${todo.completed ? 'bg-green-100' : 'bg-white'} transition-all duration-300 hover:scale-105`}
                         >
                             <span
                                 onClick={() => toggleComplete(todo.id)}
-                                className={`cursor-pointer ${
-                                    todo.completed? 'line-through text-gray-500' : 'text-gray-800'
-                                }`}
+                                className={`cursor-pointer ${todo.completed ? 'line-through text-gray-500' : 'text-gray-800'}`}
                             >
                                 {todo.text}
                             </span>
