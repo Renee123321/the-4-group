@@ -7,6 +7,7 @@ import Hhh from './Lhq/Hhh';
 import Hh from './Lyt/Hh';
 import Yz from './Syn/Yz';
 import Yuyu from'./Syt/yuyu';
+import Wsh from'./Wsh/Wsh';
 
 const App = () => {
   const menuItems = [
@@ -16,6 +17,8 @@ const App = () => {
     { label: '林玉婷', link: '/Hh' },
     { label: '苏渝婷', link: '/Yuyu' },
     { label: '粟燕妮', link: '/Yz' },
+    { label: '王钐骅', link: '/Wsh' },
+
 
   ];
   return (
@@ -29,6 +32,7 @@ const App = () => {
           <Route path="/Hh" element={<Hh />} />
           <Route path="/Sss" element={<Yuyu/>} />
           <Route path="/Yz" element={<Yz/>} />
+          <Route path="/Wsh" element={<Wsh/>} />
           
 
         </Routes>
