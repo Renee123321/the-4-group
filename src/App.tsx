@@ -5,8 +5,8 @@ import Hhhha from './Wfy/Hhhha';
 import Hhhh from './Hch/Hhhh';
 import Hhh from './Lhq/Hhh';
 import Hh from './Lyt/Hh';
-import Sss from './Syt/Sss';
 import Yz from './Syn/Yz';
+import Yuyu from'./Syt/yuyu';
 
 const App = () => {
   const menuItems = [
@@ -14,7 +14,7 @@ const App = () => {
     { label: '黄城红', link: '/Hhhh' },
     { label: '刘慧琦', link: '/Hhh' },
     { label: '林玉婷', link: '/Hh' },
-    { label: '苏渝婷', link: '/Sss' },
+    { label: '苏渝婷', link: '/Yuyu' },
     { label: '粟燕妮', link: '/Yz' },
 
   ];
@@ -27,7 +27,7 @@ const App = () => {
           <Route path="/Hhhh" element={<Hhhh />} />
           <Route path="/Hhh" element={<Hhh />} />
           <Route path="/Hh" element={<Hh />} />
-          <Route path="/Sss" element={<Sss/>} />
+          <Route path="/Sss" element={<Yuyu/>} />
           <Route path="/Yz" element={<Yz/>} />
           
 
