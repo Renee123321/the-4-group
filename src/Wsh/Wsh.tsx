@@ -11,25 +11,19 @@ const MediaGallery: React.FC = () => {
   const [mediaItems, setMediaItems] = useState<MediaItem[]>([
     {
       type: 'image',
-      url: 'public/img/90ca1e332ab64a088a0be49b93e7c1a.jpg',
+      url: 'public/img/xshlogo01.png',
       caption: '图片 1',
       likes: 0
     },
     {
       type: 'video',
-      url: 'public/img/fcad15d1a247382864cf8cfe00c5a983.mp4',
+      url: 'public/img/Camera_xhs_1743657665863.mp4',
       caption: '视频 1',
       likes: 0
     },
     {
-      type: 'image',
-      url: 'public/img/f573161e8e559729a08ba0209d0274d.jpg',
-      caption: '图片 2',
-      likes: 0
-    },
-    {
       type: 'video',
-      url: 'public/img/e5b4cf6f5d80c92a4dc361193d5ca0c4.mp4',
+      url: 'public/img/Camera_xhs_1743657785974.mp4',
       caption: '视频 2',
       likes: 0
     }
