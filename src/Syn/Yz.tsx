@@ -1,43 +1,43 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-// 组员1组件
-const Member1: React.FC = () => {
-  const [count1, setCount1] = useState(0);
-  return (
-    <div className="border-2 border-red-600 p-4 mb-4">
-      <p className="text-red-600">组员1作品（带状态）</p>
-      <p>点击次数: {count1}</p>
-      <button 
-        className="bg-blue-500 text-white px-4 py-2 rounded"
-        onClick={() => setCount1(count1 + 1)}
-      >
-        点击改变状态
-      </button>
-    </div>
-  );
+const RubyIntroduction = () => {
+    return (
+        <div style={{ width: '80%', margin: '0 auto', fontFamily: 'Arial, sans-serif' }}>
+            <h1>露比介绍</h1>
+            <p>露比是一个 [Loopy（露比）是2001年韩国的国民级动画片
+《小企鹅Pororo》中的卡通人物，她以一个粉
+红色小海狸的形象出现，拥有可爱粉红脸颊，
+给人以温馨和亲切的感觉。
+在这个动画系列里，Loopy扮演着Pororo好朋
+友的角色，展现了一种既乖巧又带有些许羡慕
+复杂情感的性格。
+中文名露比
+外文名 Loopy
+性别早女
+性格敏感且害羞，对朋友友善，
+守规矩。] ，以下是关于她的照片和视频。</p>
+            {/* 照片展示 */}
+            <div style={{ marginBottom: '20px' }}>
+                <h2>露比的照片</h2>
+                <img 
+                    src="public\img\2df743cddb003197a05d2b91d40222da.jpg" // 替换成实际露比照片的地址，本地的话可以是 'public/img/rubys_photo.jpg' 等合适路径
+                    alt="露比的照片" 
+                    style={{ maxWidth: '100%', height: 'auto' }} 
+                />
+            </div>
+            {/* 视频展示 */}
+            <div>
+                <h2>露比的视频</h2>
+                <video 
+                    src="public\img\9b814ab13d9f4db0ba281ae3dd5e3192.mp4" // 替换成实际露比视频的地址，本地路径类似上面照片的写法
+                    controls 
+                    style={{ maxWidth: '100%' }} 
+                >
+                    您的浏览器不支持视频播放，请更换浏览器尝试。
+                </video>
+            </div>
+        </div>
+    );
 };
 
-// 组员2组件
-const Member2: React.FC = () => {
-  const [isHover, setIsHover] = useState(false);
-  return (
-    <div 
-      className={`border-2 border-red-600 p-4 ${isHover ? 'bg-gray-100' : ''}`}
-      onMouseEnter={() => setIsHover(true)}
-      onMouseLeave={() => setIsHover(false)}
-    >
-      <p className="text-red-600">组员2组件作品（带状态）</p>
-    </div>
-  );
-};
-
-const App: React.FC = () => {
-  return (
-    <div className="container mx-auto">
-      <Member1 />
-      <Member2 />
-    </div>
-  );
-};
-
-export default App;
+export default RubyIntroduction;
