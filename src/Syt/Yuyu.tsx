@@ -20,7 +20,7 @@ const MediaDisplay: React.FC = () => {
     },
     {
       type: 'image',
-      url: 'public/img/b5a4d46f0bd1d091c168250c88c487cf.jpg',
+      url: 'public/img/b5a4d46f0bd1d091c168250c88c487cf.jpgg',
       caption: '图片2'
     }
   ];
