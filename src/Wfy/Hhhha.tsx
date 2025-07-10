@@ -1,92 +1,73 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
-// 定义待办事项的类型
-type Todo = {
-    id: number;
-    text: string;
-    completed: boolean;
-};
-
-// 定义 TodoList 组件
-const TodoList: React.FC = () => {
-    // 使用 useState 管理待办事项列表
-    const [todos, setTodos] = useState<Todo[]>([]);
-    // 使用 useState 管理输入框中的文本
-    const [inputText, setInputText] = useState<string>('');
-    // 使用 useState 管理当前的 ID，用于给每个待办事项赋予唯一标识
-    const [currentId, setCurrentId] = useState<number>(1);
-
-    // 添加待办事项的函数
-    const addTodo = () => {
-        if (inputText.trim() === '') return;
-        const newTodo: Todo = {
-            id: currentId,
-            text: inputText,
-            completed: false
-        };
-        setTodos([...todos, newTodo]);
-        setInputText('');
-        setCurrentId(currentId + 1);
-    };
-
-    // 删除待办事项的函数
-    const deleteTodo = (id: number) => {
-        const updatedTodos = todos.filter(todo => todo.id!== id);
-        setTodos(updatedTodos);
-    };
-
-    // 切换待办事项完成状态的函数
-    const toggleComplete = (id: number) => {
-        const updatedTodos = todos.map(todo =>
-            todo.id === id? { ...todo, completed:!todo.completed } : todo
-        );
-        setTodos(updatedTodos);
-    };
-
-    return (
-        <div className="flex flex-col items-center justify-center h-screen bg-gradient-to-br from-cyan-500 to-blue-500">
-            <div className="bg-white p-8 rounded-lg shadow-lg w-1/2 space-y-4 animate-fade-in">
-                <h1 className="text-3xl font-bold text-center text-gray-800">待办事项列表</h1>
-                <div className="flex mb-4">
-                    <input
-                        type="text"
-                        value={inputText}
-                        onChange={(e) => setInputText(e.target.value)}
-                        placeholder="输入待办事项"
-                        className="border border-gray-300 p-2 rounded-l flex-1 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-                    />
-                    <button
-                        onClick={addTodo}
-                        className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-r transition-colors duration-300"
-                    >
-                        添加
-                    </button>
-                </div>
-                <ul className="space-y-2">
-                    {todos.map(todo => (
-                        <li
-                            key={todo.id}
-                            className={`flex items-center justify-between p-3 rounded-lg shadow-md ${todo.completed ? 'bg-green-100' : 'bg-white'} transition-all duration-300 hover:scale-105`}
-                        >
-                            <span
-                                onClick={() => toggleComplete(todo.id)}
-                                className={`cursor-pointer ${todo.completed ? 'line-through text-gray-500' : 'text-gray-800'}`}
-                            >
-                                {todo.text}
-                            </span>
-                            <button
-                                onClick={() => deleteTodo(todo.id)}
-                                className="bg-red-500 hover:bg-red-600 text-white font-bold py-1 px-2 rounded transition-colors duration-300"
-                            >
-                                删除
-                            </button>
-                        </li>
-                    ))}
-                </ul>
-            </div>
+const PochaccoCollection: React.FC = () => {
+  const expressions = [
+    "public\\img\\w.gif", 
+    "public\\img\\ww.gif", 
+    "public\\img\\www.gif", 
+    "public\\img\\f.gif"
+    ];
+  const [currentIndex, setCurrentIndex] = useState(0); 
+  const[userReview,setUserReview]=useState('');
+  const [favoriteExpressions, setFavoriteExpressions] = useState<string[]>([]);
+  const nextExpression = () => {
+    setCurrentIndex((prev) => (prev + 1) % expressions.length);
+  };
+  return (
+    <div className="max-w-6xl mx-auto p-4">
+      <div className="flex-1 bg-white p-6 rounded-2xl shadow-md border-2 border-purple-200 mb-8">
+        <h2 className="text-2xl font-bold text-purple-700 mb-4 pb-2">
+          关于帕恰狗
+        </h2>
+        <div className="space-y-4 text-gray-700">
+          <p className="text-lg">
+            帕恰狗（Pochacco）是三丽鸥公司于1989年创造的卡通形象，是一只白色的小狗，有着大大的棕色耳朵和圆圆的黑色眼睛。帕恰狗的名字来源于日语中的"ぽちゃっと"（pochatto），意思是圆润可爱。它性格活泼开朗，喜欢运动，特别是篮球和足球，经常带着可爱的笑容。
+          </p>
+          <p className="text-lg">
+            帕恰狗以其天真无邪的形象和活泼的个性赢得了全球粉丝的喜爱，经常出现在各种周边商品上，如文具、毛绒玩具和服装等。它的设计简单却充满魅力，是Sanrio家族中最受欢迎的角色之一。
+          </p>
         </div>
-    );
+        <div className="bg-pink-300 w-52 h-10 text-center text-white p-2 text-2xl mb-4">帕恰狗照片</div>
+        <img 
+          src="/img/y.jpg" 
+          alt="帕恰狗相关图片" 
+          className="w-56 h-42 my-4" 
+        />
+      </div>
+      <div className="p-4 bg-white rounded-2xl shadow-md border-2 border-blue-200 mb-8">
+        <div className="bg-blue-500 w-52 h-10 text-center text-black p-2 text-2xl mb-4">帕恰狗表情包</div>
+        <img 
+          src={expressions[currentIndex]} 
+          alt="帕恰狗表情" 
+          className="w-32 h-32 mb-4"
+        />
+        <div className="bg-green-400 w-24 h-8 text-black inline-block">
+          <button onClick={nextExpression}>切换表情包</button>
+        </div>
+      </div>
+      <div className="p-4 bg-white rounded-2xl shadow-md border-2 border-green-200 mb-8">
+      <h3 className="text-xl font-bold text-green-700 mb-4 pb-2 ">
+        留下你的评价
+      </h3>
+      <input 
+        type="text" 
+        placeholder="写下你对帕恰狗的看法" 
+        className="shadow appearance-none border rounded w-full py-2 px-3 text-white-700 leading-tight focus:outline-none focus:shadow-outline mb-4"
+        value={userReview}
+        onChange={(e) => setUserReview(e.target.value)}
+      />
+      <button
+        className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+        onClick={() => {
+          console.log('用户评价:', userReview); 
+          setUserReview(''); 
+        }}
+      >
+        提交评价
+      </button>
+    </div>
+    </div>
+  );
 };
 
-export default TodoList;
-    
+export default PochaccoCollection;
