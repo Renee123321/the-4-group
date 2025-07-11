@@ -86,7 +86,7 @@ const MediaGallery: React.FC = () => {
       <div className="flex justify-center items-center mt-4">
         <button
           onClick={handleLike}
-          className="flex items-center space-x-1 px-4 py-2 text-white bg-green-500 rounded hover:bg-green-600"
+          className="flex items-center space-x-1 px-4 py-2 text-white bg-green-500 rounded hover:bg-blue-200"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
