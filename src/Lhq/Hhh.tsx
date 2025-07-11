@@ -1,104 +1,41 @@
-import { useState } from 'react';
+import React, { useState } from "react";
 
-// 定义组件的props类型（如果需要）
-interface CounterProps {
-  initialValue?: number;
-}
-
-const Counter = ({ initialValue = 0 }: CounterProps) => {
-  // 使用useState管理计数器状态
-  const [count, setCount] = useState<number>(initialValue);
-  const [inputValue, setInputValue] = useState<string>('');
-
-  // 增加计数器
-  const increment = () => {
-    setCount(prevCount => prevCount + 1);
-  };
-
-  // 减少计数器
-  const decrement = () => {
-    setCount(prevCount => prevCount - 1);
-  };
-
-  // 重置计数器
-  const reset = () => {
-    setCount(initialValue);
-  };
-
-  // 设置自定义值
-  const setCustomValue = () => {
-    const num = parseInt(inputValue);
-    if (!isNaN(num)) {
-      setCount(num);
-    }
-    setInputValue('');
-  };
+const MyComponent: React.FC = () => {
+    const img1 ="/img/09f79d24310759c1cabcca483b88701.jpg";
+const img2 ="/img/078d8a4da590acfd7422dca2bd13bcf.jpg";
+  const videoUrl = "/img/7e2e7a07a685969cd6f3a4242d7c7912_raw.mp4";
 
   return (
-    <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-center p-4">
-      <div className="bg-white rounded-lg shadow-md p-6 w-full max-w-md">
-        <h1 className="text-2xl font-bold text-gray-800 mb-6 text-center">
-          计数器应用
-        </h1>
-        
-        <div className="flex justify-center items-center mb-6">
-          <button
-            onClick={decrement}
-            className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-l-lg transition duration-200"
-          >
-            -
-          </button>
-          
-          <div className="bg-gray-200 px-6 py-2 text-xl font-mono">
-            {count}
-          </div>
-          
-          <button
-            onClick={increment}
-            className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-r-lg transition duration-200"
-          >
-            +
-          </button>
+    <div>
+        <h1 className="bg-pink-50 p-5 w-34 h-30 border-blue-500 bprder-4 text-3xl text-center">关于马可波罗</h1>
+        <li className="text-xl">简介：马可波罗是一位灵活的双枪游侠射手，以高机动性和独特的真实伤害为核心。他依赖技能输出，擅长消耗和收割。</li>
+        <li className="text-xl">技能介绍：被动 - 连锁反应： 普攻与技能伤害叠加“破坏”效果，10层后目标受到真实伤害，持续5秒。<br/>
+        1技能 - 华丽左轮： 向指定方向连续射击，造成物理伤害（可暴击），受攻速影响子弹数。主要消耗/输出手段。<br/>
+        2技能 - 漫游之枪： 向指定方向闪烁，附近有敌人时提升移速和伤害。提供位移与预警。<br/>
+        3技能 - 狂热弹幕： 位移后向周围持续射击，造成高额物理伤害。核心AOE爆发技能。</li>S
+
+        <li className="text-xl">核心特色：真实伤害、高机动性、技能型射手。</li>
+       {/* 图片 */}
+       <div>
+<img src={img1}  alt="技能效果1" className="block mx-auto" /><br/><hr/>
+<img src={img2}  alt="技能效果2" className="block mx-auto" />
+
+</div>
+{/* 视频展示 */}
+<div className="w-full max-w-xl ">
+    <h2 className="text-3xl block mx-auto">技能演示</h2>
+    <video
+    src={videoUrl}
+    controls
+    width="100%"
+    height="auto"
+    muted
+    >
+        您的浏览器不支持视频播放，请更换现代浏览器
+        </video>
         </div>
-        
-        <div className="flex flex-col space-y-4">
-          <button
-            onClick={reset}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition duration-200"
-          >
-            重置
-          </button>
-          
-          <div className="flex mt-4">
-            <input
-              type="number"
-              value={inputValue}
-              onChange={(e) => setInputValue(e.target.value)}
-              placeholder="输入自定义值"
-              className="flex-1 border border-gray-300 rounded-l-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-            <button
-              onClick={setCustomValue}
-              className="bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 px-4 rounded-r-lg transition duration-200"
-            >
-              设置
-            </button>
-          </div>
-        </div>
-        
-        {/* 根据计数显示不同消息 */}
-        <div className="mt-6 text-center">
-          {count > 10 ? (
-            <p className="text-green-600 font-semibold">计数已经超过10了！</p>
-          ) : count < 0 ? (
-            <p className="text-red-600 font-semibold">计数是负数！</p>
-          ) : (
-            <p className="text-gray-600">当前计数在0-10之间</p>
-          )}
-        </div>
-      </div>
-    </div>
-  );
+</div>
+   );
 };
 
-export default Counter;
+export default MyComponent;
